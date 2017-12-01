@@ -67,7 +67,7 @@ class BaiduSlug_Action extends Typecho_Widget implements Widget_Interface_Do
      */
     public function baidu($word)
     {
-        $data = array('appid' => $this->_config->bdappid, 'q' => $word, 'from' => 'zh', 'to' => 'en', 'salt' => rand(10000,99999));
+        $data = array('appid' => $this->_config->bdappid, 'q' => $word, 'from' => 'zh', 'to' => 'en', 'salt' => rand(1000000000,9999999999));
         $data['sign'] = $this->buildSign($word, $this->_config->bdappid, $data['salt'], $this->_config->bdkey);
         $data = http_build_query($data);
         $url = 'http://api.fanyi.baidu.com/api/trans/vip/translate' . '?' . $data;
